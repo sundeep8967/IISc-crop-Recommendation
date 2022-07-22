@@ -6,9 +6,11 @@ export const Firstbox = ({setSeason}) => {
     return( <NativeBaseProvider>
     <Center>
     <Text>
-      <FormControl w="3/4" maxW="300" isRequired isInvalid>
+      <FormControl w="3/4" maxW="300" isRequired >
         <FormControl.Label>Select Season</FormControl.Label>
-        <Select minWidth="200" accessibilityLabel="Choose Service" placeholder="Choose Season" _selectedItem={{
+        <Select minWidth="200" accessibilityLabel="Choose Service" placeholder="Choose Season" 
+                      borderColor="#1144aa"
+        _selectedItem={{
             bg: "teal.600",
             endIcon: <CheckIcon size={5} />
           }} 
@@ -17,9 +19,9 @@ export const Firstbox = ({setSeason}) => {
           <Select.Item label="KHARIF CROPS" value="khariff" />
           <Select.Item label="RABI CROPS" value="rabi" />
         </Select>
-        <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
+        {/* <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
           Please make a selection!
-        </FormControl.ErrorMessage>
+        </FormControl.ErrorMessage> */}
       </FormControl>
     </Text>
 </Center>

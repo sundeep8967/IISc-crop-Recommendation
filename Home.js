@@ -4,7 +4,10 @@ import { Firstbox } from './Firsbox';
 import { Secondbox } from './Secondbox';
 import Buttonn from './button';
 import { StatusBar } from 'expo-status-bar';
+
+import { showMessage, hideMessage } from "react-native-flash-message";
 import { SafeAreaView } from 'react-native';
+import FlashMessage from "react-native-flash-message";
 
 export default function Home({navigation}) {
     const [season, setSeason] = useState('')
@@ -23,12 +26,23 @@ export default function Home({navigation}) {
             <Secondbox season={season} setCrop={setCrop}/>   
           </View> 
           <View style={styles.button} >
-            <Button title='Get Data' style={{flex:1}} onPress={()=> navigation.navigate('Data', {
+            <Button title='Get Data' style={{flex:1}} onPress={()=> {
+              if(season === '' || crop===''){
+                  showMessage({
+              message: "Please fill all details",
+              type: "info",
+            });
+              }else{
+
+              navigation.navigate('Data', {
               season: season,
               crop: crop
-            })}/>
+              })
+              }
+            }}/>
           </View>   
       </View>
+      <FlashMessage position="top" />
     </SafeAreaView>
      
   )

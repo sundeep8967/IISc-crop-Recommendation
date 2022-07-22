@@ -1,15 +1,17 @@
 import React from "react";
 import { NativeBaseProvider, Box,Select,Center,FormControl,CheckIcon,WarningOutlineIcon,Text } from "native-base";
-import { View } from "react-native";
+import { View, StyleSheet } from "react-native";
 
 export const Secondbox = ({season, setCrop}) => {
     return( <NativeBaseProvider>
   <Center>
     <Text>
-      <FormControl w="3/4" maxW="300" isRequired isInvalid>
+      <FormControl w="3/4" maxW="300" isRequired >
        
         <FormControl.Label>Select crop </FormControl.Label>
-        <Select minWidth="200" accessibilityLabel="Choose Service" placeholder="Choose Service" _selectedItem={{
+        <Select minWidth="200" accessibilityLabel="Choose Service" placeholder="Choose Service" 
+            borderColor="#1144aa"
+            _selectedItem={{
             bg: "teal.600",
             endIcon: <CheckIcon size={5} />
           }}
@@ -27,12 +29,13 @@ export const Secondbox = ({season, setCrop}) => {
          
           
         </Select>
-        <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
+        {/* <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
           Please make a selection!
-        </FormControl.ErrorMessage>
+        </FormControl.ErrorMessage> */}
       </FormControl>
     </Text>
     </Center>
 
           </NativeBaseProvider>)
   };
+
